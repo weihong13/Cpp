@@ -451,12 +451,26 @@ void WorkerManager::FindWorker()
 	}
 }
 // 升序
-int cmp_by_id_1(const void* e1, const void* e2) {
-	return ((((Worker*)e1)->m_Id) - (((Worker*)e2)->m_Id));
+bool cmp_by_id_1(const void* e1, const void* e2) {
+	if ((((Worker*)e1)->m_Id) < (((Worker*)e2)->m_Id))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}	
 }
 // 降序
-int cmp_by_id_2(const void* e1, const void* e2) {
-	return ((((Worker*)e2)->m_Id) - (((Worker*)e1)->m_Id));
+bool cmp_by_id_2(const void* e1, const void* e2) {
+	if ((((Worker*)e1)->m_Id) > (((Worker*)e2)->m_Id))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 // 按照编号排序:按照职工编号，进行排序，排序规则由用户指定
@@ -477,7 +491,7 @@ void WorkerManager::SortById()
 		if (input == 1)
 		{
 			// 使用 qsort排序
-			qsort(this->m_EmpArr, this->m_EmpNum, sizeof(Worker*), cmp_by_id_1);
+			sort(this->m_EmpArr, this->m_EmpArr+this->m_EmpNum, cmp_by_id_1);
 			cout << "排序成功！" << endl;
 			this->ShowWorkersInfo();
 
@@ -485,7 +499,7 @@ void WorkerManager::SortById()
 		else if (input == 2)
 		{
 			// 使用 qsort排序
-			qsort(this->m_EmpArr, this->m_EmpNum, sizeof(Worker*), cmp_by_id_2);
+			sort(this->m_EmpArr, this->m_EmpArr + this->m_EmpNum, cmp_by_id_2);
 			cout << "排序成功！" << endl;
 			this->ShowWorkersInfo();
 
