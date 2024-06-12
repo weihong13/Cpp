@@ -1,10 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
-// i input o output 流（一段字节序列，字符串）
-using namespace std;
+// i input o output stream：流（一段字节序列，字符串）
+using namespace std; // 命名空间（作用域）：标准命名空间
 
 
+//// 自己定义的命名空间
+//namespace Pointer {
+//	int a;
+//}
+//
+//// 在main函数访问时，需要加作用域
+//int main()
+//{
+//	// a = 2; // err 访问不到pointer中的 a
+//	Pointer::a = 2; 
+//}
 
+
+ //布尔类型
+ //C++ 新增的数据类型：
+	//			单独占一个字节，取值0（false）或1（true）
+	//			任何非零值，都是1
+	//			C 语言中没有bool类型
+// 
+// 
 //int main()
 //{
 //
@@ -20,8 +39,20 @@ using namespace std;
 	new不需要传入具体的字节个数，malloc需要传入具体的字节个数
 	new使用delete释放，malloc使用free释放
 
-*/
-
+//*/
+//int main()
+//{
+//
+//	int* n = new int[3]{ 1,2,3 }; // 申请多个
+//	delete[] n;	// 释放多个
+//
+//	int* n1 = new int(3); // 申请一个
+//	delete n1;	// 释放一个
+//
+//	int* p = (int*)malloc(sizeof(int) * 4); // 申请多个
+//	free(p); // 释放
+//	return 0;
+//}
 
 
 /*
@@ -33,7 +64,6 @@ using namespace std;
 	常量：const int a;
 
 */
-
 //int main()
 //{
 //	int* const p = NULL; // 指针常量
